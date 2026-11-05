@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1aa6c4">
+  <title>Junior News Express — SkillUp Juniors</title>
+  <link rel="icon" href="./brand/mark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <span class="wash w1"></span>
+    <span class="wash w2"></span>
+    <span class="wash w3"></span>
+    <span class="wash w4"></span>
+    <svg class="motif plane" viewBox="0 0 80 80">
+      <path d="M6 38 L74 14 L34 70 L30 46 Z" fill="#2f9fe0"/>
+      <path d="M30 46 L74 14 L42 50 Z" fill="#1b7ec0"/>
+      <path d="M30 46 L22 66 L34 50 Z" fill="#f5a623"/>
+    </svg>
+    <svg class="motif star s1" viewBox="0 0 40 40"><polygon points="20,2 25,15 38,15 27,23 31,36 20,28 9,36 13,23 2,15 15,15" fill="#f5a623"/></svg>
+    <svg class="motif star s2" viewBox="0 0 40 40"><polygon points="20,2 25,15 38,15 27,23 31,36 20,28 9,36 13,23 2,15 15,15" fill="#3cba6a"/></svg>
+    <svg class="motif star s3" viewBox="0 0 40 40"><polygon points="20,2 25,15 38,15 27,23 31,36 20,28 9,36 13,23 2,15 15,15" fill="#2f9fe0"/></svg>
+    <span class="booklet b1"></span>
+    <span class="booklet b2"></span>
+    <span class="booklet b3"></span>
+  </div>
+
+  <main class="desk">
+    <header class="mast">
+      <a class="brand" href="https://skillupjuniors.com/" target="_blank" rel="noopener">
+        <img src="./brand/mark.png" alt="SkillUp Juniors">
+      </a>
+      <div class="titleblock">
+        <p class="eyebrow">Junior News Express</p>
+        <h1>Volume 1</h1>
+        <p class="sub">October 2026 · Children’s newspaper</p>
+      </div>
+    </header>
+    <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <div class="stage">
+      <div class="book" id="book" data-mode="two">
+        <div class="board"></div>
+        <div class="edge left" id="edge-left" aria-hidden="true"></div>
+        <div class="leaves" id="leaves"></div>
+        <div class="spread" id="spread">
+          <div class="half left" id="half-left"><canvas id="left-page"></canvas></div>
+          <div class="cylinder" aria-hidden="true"></div>
+          <div class="half right" id="half-right"><canvas id="right-page"></canvas></div>
+          <div class="sheet" id="sheet">
+            <div class="face front" id="sheet-front-face"><canvas id="sheet-front"></canvas></div>
+            <div class="face back" id="sheet-back-face"><canvas id="sheet-back"></canvas></div>
+          </div>
+        </div>
+        <div class="edge right" id="edge-right" aria-hidden="true"></div>
+        <button class="hit prev" id="hit-prev" type="button" aria-label="Previous page"></button>
+        <button class="hit next" id="hit-next" type="button" aria-label="Next page"></button>
+      </div>
+    </div>
+
+    <p class="status" id="status" aria-live="polite">Opening the journal…</p>
+    <div class="modes" role="group" aria-label="Reading layout">
+      <button class="mode" id="mode-one" type="button" aria-pressed="false">One page</button>
+      <button class="mode" id="mode-two" type="button" aria-pressed="true">Two pages</button>
+    </div>
+    <div class="controls">
+      <button class="nav" id="prev" type="button">Previous</button>
+      <p class="count" id="count">Page 1</p>
+      <button class="nav next" id="next" type="button">Next</button>
+    </div>
+
+    <footer class="colophon">
+      <img src="./brand/mark.png" alt="">
+      <p>SkillUp Juniors presents Junior News Express<br>Banjara Hills, Hyderabad</p>
+    </footer>
+  </main>
+  <script src="./vendor/pdf.min.js"></script>
+  <script src="./book.js"></script>
+</body>
+</html>
