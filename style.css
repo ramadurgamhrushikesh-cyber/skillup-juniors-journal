@@ -241,7 +241,6 @@ h1 {
   overflow: hidden;
   background: repeating-linear-gradient(90deg, #f7f1e6 0 3px, #e3d5c0 3px 4px);
   box-shadow: 0 8px 16px rgba(40, 24, 12, .12);
-  transition: width .45s ease;
 }
 .edge.right { left: calc(100% - 1px); border-radius: 0 4px 4px 0; }
 .edge.left { right: calc(100% - 1px); border-radius: 4px 0 0 4px; transform: scaleX(-1); }
@@ -320,5 +319,5 @@ h1 {
   .stage { padding: 12px 8px 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .leaf, .edge, .sheet { transition: none; }
+  .leaf, .sheet { transition: none; }
 }

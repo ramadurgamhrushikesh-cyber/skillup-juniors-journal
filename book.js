@@ -23,6 +23,18 @@
   let busy = false;
   let total = 0;
   let mode = "two";
+  const pageSound = new Audio("./sounds/page-turn.mp3");
+  pageSound.preload = "auto";
+
+  function playTurn() {
+    try {
+      pageSound.currentTime = 0;
+      const played = pageSound.play();
+      if (played && typeof played.catch === "function") played.catch(function () {});
+    } catch (error) {
+      /* a blocked play leaves the page turn itself intact */
+    }
+  }
 
   pdfjsLib.GlobalWorkerOptions.workerSrc = "./vendor/pdf.worker.min.js";
 
@@ -78,9 +90,14 @@
     nextBtn.disabled = atEnd || busy;
     hitPrev.disabled = atStart || busy;
     hitNext.disabled = atEnd || busy;
+    if (busy) return;
     const depth = mode === "two" ? sheet : Math.floor(cursor() / 2);
-    edgeLeft.style.width = depth * 6 + "px";
-    edgeRight.style.width = Math.max(0, total - 1 - depth) * 6 + "px";
+    const right = Math.max(0, total - 1 - depth) * 6 + "px";
+    const left = depth * 6 + "px";
+    edgeLeft.style.transition = "none";
+    edgeRight.style.transition = "none";
+    edgeLeft.style.width = left;
+    edgeRight.style.width = right;
   }
 
   function settle(nextSheet, nextSide) {
@@ -171,6 +188,10 @@
 
   function turn(dir) {
     if (busy || !total) return;
+    const next = mode === "two" ? sheet + dir : cursor() + dir;
+    const limit = mode === "two" ? total : halves();
+    if (next < 0 || next >= limit) return;
+    playTurn();
     if (mode === "two") turnTwo(dir);
     else turnOne(dir);
   }
