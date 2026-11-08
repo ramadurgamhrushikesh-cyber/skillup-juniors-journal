@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/paper.html", "destination": "/", "permanent": false }
+  ]
+}
